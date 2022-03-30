@@ -11,6 +11,8 @@ This is an ***'on the side'*** project that I will use to contain various module
 
 as you can see, I've made this GNU GPL. I'm happy for anyone to use and or rework whatever they find useful from here. 
 
+I must add that whilst I have made the best efforts to make sure everything in here is safe and tested it presonally, in line with the GNU GPL License, I cannot take responsibility for an damage done using the contents of this repo. Please check anything you use carefully before running it!
+
 The whole Unity experience for me has been with the purpose of learning. It would be great if anything I've done can help someone else. feel free to add any comments you want, let me know how anything was useful or anything you feel needs improvement, the usual stuff. No obligation though!
 
 ---
