@@ -19,7 +19,7 @@ public class PanelBehaviourScript : MonoBehaviour
     [SerializeField] private GameObject[] carouselPanels;
     [SerializeField] private GameObject pivotPoint;
     [SerializeField] private int sideSpace; //our buffer at the side of each panel
-    private int currentPanelID;
+    //private int currentPanelID;
     private int numPanels;
     private float panelAngle, currentAngle, rotateAmount;
     private float panelWidth;
@@ -58,7 +58,7 @@ public class PanelBehaviourScript : MonoBehaviour
             panel.transform.position = pivotPointPosition + new Vector3(0, 0, -panelDepthOffset);
             panel.transform.RotateAround(pivotPointPosition, Vector3.up, (panelAngle * thisPanel));//RotateAround(Vector3 point, Vector3 axis, float angle);
         }
-        currentPanelID = 0;
+        //currentPanelID = 0;
         Camera.main.transform.position += Vector3.back * panelDepthOffset; //move camera back enough to see repositioned panels
     }
 
