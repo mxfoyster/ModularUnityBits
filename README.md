@@ -7,6 +7,17 @@ This is an ***'on the side'*** project that I will use to contain various module
 
 ---
 
+## Contents So Far
+
+- CAROUSEL
+
+This is a simple bit of code that allows us to have a number of ui panels that will be arranged like a polygon around a pivot point.
+
+Basically, camera sees a panel face on but user can rotate left or right using the arrow keys to snap to the next panel on our polygon. Currently, we have a hexagon, but the maths should work for different numbers. This is yet to be tested. I intend this for something like a game settings scene within a game where we will need a number of panels to accommodate all the different options.
+
+
+---
+
 ## Licensing / Use
 
 as you can see, I've made this GNU GPL. I'm happy for anyone to use and or rework whatever they find useful from here. 
