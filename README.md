@@ -15,6 +15,13 @@ This is a simple bit of code that allows us to have a number of ui panels that w
 
 Basically, camera sees a panel face on but user can rotate left or right using the arrow keys to snap to the next panel on our polygon. Currently, we have a hexagon, but the maths should work for different numbers. This is yet to be tested. I intend this for something like a game settings scene within a game where we will need a number of panels to accommodate all the different options.
 
+---
+
+- AUDIOMANAGER
+
+A simple audio player on one of the panels that can play both sound effects and background music. We have faders and the ability to change between background music tracks. This module might be useful to someone. I will use bits of it again.
+
+I will be adding a visualiser for the track playing, I have began some of the background code for this.
 
 ---
 

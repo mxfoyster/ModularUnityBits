@@ -8,17 +8,24 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource soundClipSource;
     [SerializeField] private AudioSource BkgSoundClipSource;
     [SerializeField] private AudioClip[] Clips;
-   
+    [SerializeField] private AudioClip[] audioTracks;
+    [SerializeField] private string[] trackDetails;
+    [SerializeField] private Text trackDetailsPlace;
+    [SerializeField] private Text playButtonText;
+    [SerializeField] private Text trackNumberText;
+
     [SerializeField] private Toggle muteAllToggle, muteMusicToggle;
     [SerializeField] private Slider masterVol,effectsVol,musicVol;
 
     [HideInInspector] public bool SoundMuted; //mute status
 
-
+    private int currentTrack;
 
     public void Start()
     {
         SoundMuted = false;
+        currentTrack = 0;
+        SwapTracks();
     }
 
     private void Update()
@@ -87,6 +94,10 @@ public class AudioManager : MonoBehaviour
             BkgSoundClipSource.UnPause();
     }
 
+    /// <summary>
+    /// Master fader method.
+    /// This controls the other two faders too when adjusted 
+    /// </summary>
     public void OnMasterVolAdjust()
     {
         //adjust volumes
@@ -98,18 +109,77 @@ public class AudioManager : MonoBehaviour
         musicVol.value = masterVol.value;
     }
 
+    /// <summary>
+    /// Effects fader method
+    /// </summary>
     public void OnEffectsVolAdjust()
     {
         soundClipSource.volume = effectsVol.value;
     }
 
+    /// <summary>
+    /// Music fader method
+    /// </summary>
     public void OnMusicVolAdjust()
     {
         BkgSoundClipSource.volume = musicVol.value;
     }
 
+    /// <summary>
+    /// method for all effect butoons
+    /// </summary>
+    /// <param name="index">The index of sound clip array to play</param>
     public void OnPlayClip(int index)
     {
         if (!SoundMuted) soundClipSource.PlayOneShot(Clips[index]);
     }
+
+    public void OnPlayPauseButton()
+    {
+        if (playButtonText.text == ">")
+        {
+            playButtonText.text = "||";
+            BkgSoundClipSource.Pause();
+        }
+        else
+        {
+            playButtonText.text = ">";
+            BkgSoundClipSource.UnPause();
+        }
+    }
+
+    public void OnBackButton()
+    {
+        if (currentTrack > 0)
+        {
+            currentTrack--;
+        }
+        else 
+        {
+            currentTrack = trackDetails.Length - 1;
+        }
+        SwapTracks();
+    }
+
+    public void OnForwardButton()
+    {
+        if (currentTrack < trackDetails.Length-1)
+        {
+            currentTrack++;
+        }
+        else
+        {
+            currentTrack = 0;
+        }
+       SwapTracks();
+    }
+    public void SwapTracks()
+    {
+        playButtonText.text = ">";
+        trackNumberText.text = "Now Playing Track " + (currentTrack + 1).ToString() + ":";
+        trackDetailsPlace.text = trackDetails[currentTrack];
+        BkgSoundClipSource.clip = audioTracks[currentTrack];
+        BkgSoundClipSource.Play();
+    }
+
 }
