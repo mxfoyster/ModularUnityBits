@@ -21,7 +21,7 @@ Basically, camera sees a panel face on but user can rotate left or right using t
 
 A simple audio player on one of the panels that can play both sound effects and background music. We have faders and the ability to change between background music tracks. This module might be useful to someone. I will use bits of it again.
 
-I will be adding a visualiser for the track playing, I have began some of the background code for this.
+We now have a visualiser set on a panel within our audio panel. This uses the `GetSpectrumData` method and a bit of maths to get the frequency ranges right.
 
 ---
 
